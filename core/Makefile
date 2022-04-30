@@ -2,6 +2,10 @@
 
 $(info [$(include_makefiles_total)/$(include_makefiles_total)] finishing Make packaging rules)
 
+ifneq ($(BUILD_WITH_COLORS),0)
+  include $(TOP_DIR)build/core/colors.mk
+endif
+
 # HACK: clear LOCAL_PATH from including last build target before calling
 # intermedites-dir-for
 LOCAL_PATH := $(BUILD_SYSTEM)
