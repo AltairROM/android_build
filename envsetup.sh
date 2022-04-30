@@ -611,16 +611,16 @@ function lunch()
 
     if ! check_product $product $release
     then
-        # if we can't find a product, try to grab it off the LineageOS GitHub
+        # if we can't find a product, try to grab it off the Altair ROM GitHub
         T=$(gettop)
         cd $T > /dev/null
-        vendor/lineage/build/tools/roomservice.py $product
+        vendor/lineage/build/tools/altair-roomservice.py $product
         cd - > /dev/null
         check_product $product $release
     else
         T=$(gettop)
         cd $T > /dev/null
-        vendor/lineage/build/tools/roomservice.py $product true
+        vendor/lineage/build/tools/altair-roomservice.py $product true
         cd - > /dev/null
     fi
 
