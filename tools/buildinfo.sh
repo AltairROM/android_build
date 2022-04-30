@@ -56,5 +56,6 @@ if [ -n "$BUILD_THUMBPRINT" ] ; then
 fi
 
 echo "ro.lineage.device=$LINEAGE_DEVICE"
+echo "ro.altair.device=$LINEAGE_DEVICE"
 
 echo "# end build properties"
