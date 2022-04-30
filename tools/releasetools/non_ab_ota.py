@@ -221,6 +221,31 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   # Dump fingerprints
   script.Print("Target: {}".format(target_info.fingerprint))
 
+  s_rom_version = target_info.GetBuildProp("ro.altair.display.version")
+  s_android_version = target_info.GetBuildProp("ro.build.version.release")
+  s_manufacturer = target_info.GetBuildProp("ro.product.manufacturer")
+  s_device = target_info.GetBuildProp("ro.product.device")
+
+  script.Print(" ");
+  script.Print(" ");
+  script.Print("=============================================");
+  script.Print("|           _   _______       _____ _____   |");
+  script.Print("|     /\   | | |__   __|/\   |_   _|  __ \  |");
+  script.Print("|    /  \  | |    | |  /  \    | | | |__) | |");
+  script.Print("|   / /\ \ | |    | | / /\ \   | | |  _  /  |");
+  script.Print("|  / ____ \| |____| |/ ____ \ _| |_| | \ \  |");
+  script.Print("| /_/    \_\______|_/_/    \_\_____|_|  \_\ |");
+  script.Print("|                                           |");
+  script.Print("|                         By Martin Pollard |");
+  script.Print("|                     Based on LineageOS 20 |");
+  script.Print("=============================================");
+  script.Print("ROM version    : %s"%(s_rom_version));
+  script.Print("Android version: %s"%(s_android_version));
+  script.Print("Manufacturer   : %s"%(s_manufacturer));
+  script.Print("Device         : %s"%(s_device));
+  script.Print("=============================================");
+  script.Print(" ");
+
   device_specific.FullOTA_InstallBegin()
 
   CopyInstallTools(output_zip)
