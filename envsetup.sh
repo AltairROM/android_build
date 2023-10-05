@@ -1207,6 +1207,21 @@ set_global_paths
 source_vendorsetup
 addcompletions
 
+function remove_broken_build_tools() {
+    for file in prebuilts/build-tools/path/*/date; do
+        if [ -e "$file" ]; then
+            rm -rf "$file"
+        fi
+    done
+    for file in prebuilts/build-tools/path/*/tar; do
+        if [ -e "$file" ]; then
+            rm -rf "$file"
+        fi
+    done
+}
+
+remove_broken_build_tools
+
 export ANDROID_BUILD_TOP=$(gettop)
 
 . $ANDROID_BUILD_TOP/vendor/lineage/build/envsetup.sh
